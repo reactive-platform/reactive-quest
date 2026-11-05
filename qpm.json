@@ -1,0 +1,88 @@
+{
+  "$schema": "https://raw.githubusercontent.com/QuestPackageManager/QPM.Package/refs/heads/main/qpm.schema.json",
+  "version": "0.1.0",
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "Reactive",
+    "id": "reactive",
+    "version": "0.1.0",
+    "url": "https://github.com/reactive-platform/reactive-quest",
+    "additionalData": {
+      "overrideSoName": "libreactive.so",
+      "compileOptions": {
+        "includePaths": [
+          "shared"
+        ],
+        "cppFlags": [
+          "-Wno-reorder-init-list"
+        ]
+      }
+    }
+  },
+  "workspace": {
+    "scripts": {
+      "build": [
+        "pwsh ./scripts/build.ps1 $0:?"
+      ],
+      "clean": [
+        "pwsh ./scripts/build.ps1 -clean"
+      ],
+      "copy": [
+        "pwsh ./scripts/copy.ps1 $0:?"
+      ],
+      "log": [
+        "pwsh ./scripts/start-logging.ps1 $0:?"
+      ],
+      "qmod": [
+        "pwsh ./scripts/createqmod.ps1 $0:?"
+      ],
+      "restart": [
+        "pwsh ./scripts/restart-game.ps1 $0:?"
+      ],
+      "stack": [
+        "pwsh ./scripts/ndk-stack.ps1 $0:?"
+      ],
+      "tomb": [
+        "pwsh ./scripts/pull-tombstone.ps1 $0:?"
+      ]
+    },
+    "ndk": "^27.3.13750724",
+    "qmodIncludeDirs": [
+      "./build",
+      "./extern/libs"
+    ],
+    "qmodIncludeFiles": [],
+    "qmodOutput": "./Reactive.qmod"
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "^6.4.2",
+      "additionalData": {}
+    },
+    {
+      "id": "scotland2",
+      "versionRange": "^0.1.6",
+      "additionalData": {
+        "includeQmod": false,
+        "private": true
+      }
+    },
+    {
+      "id": "bs-cordl",
+      "versionRange": "4008.*",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "^0.18.3",
+      "additionalData": {}
+    },
+    {
+      "id": "paper2_scotland2",
+      "versionRange": "^4.6.4",
+      "additionalData": {}
+    }
+  ]
+}
